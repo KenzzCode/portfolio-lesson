@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Pengajuan Masuk Mercedes F1</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Poppins, sans-serif;
+    }
+   
+    
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url("bg f1.jpg") center center / cover no-repeat;  
+    }
+  .form-box {
+    width: 500px;
+    padding: 40px;
+    border-radius: 30px;
+
+    background: rgba(16, 131, 238, 0.15);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow:
+        0 8px 32px rgba(0,0,0,.2),
+        inset 0 1px 1px rgba(255,255,255,.5),
+        inset 0 -1px 1px rgba(255,255,255,.1);
+
+    position: relative;
+    z-index: 10;
+}
+
+.form-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45%;
+    border-radius: 30px;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,.45),
+        transparent
+    );
+    pointer-events: none;
+}
+
+
+   .form-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00D2BE, #7FFFD4, #00D2BE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}  
+
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+ .input-group input {
+  width: 100%;
+  padding: 14px 10px;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 12px;
+  outline: none;
+  font-size: 16px;
+  background: rgba(255,255,255,.15);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+    /* Trik 1 –Focus Ring & Smooth  */
+
+    .input-group input:focus {
+      border-color: dodgerblue;
+    }
+
+.input-group label {
+  position: absolute;
+  left: 10px;
+  top: 14px;
+  background: transparent;
+  padding: 0 5px;
+  color: white;
+  transition: .3s;
+  pointer-events: none;
+}
+
+.input-group input::placeholder {
+  color: rgba(255,255,255,.7);
+}
+
+    /* Trik 2- Floating Label */
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -14px;
+    left: 10px;
+    font-size: 13px;
+    color: white;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    backdrop-filter: none;
+}
+
+
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #0576e7;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+}
+
+button:hover {
+    background: #2563eb;
+}
+.logo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  top: -30px;
+  color: red;
+  font-size: 25px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-30px);
+  }
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+  <div class="form-box">
+    <img src="Mercesdes.jpg" class="logo" alt="Mercedes Logo">
+    <h2>DAFTARKAN SEGERA</h2>
+
+   <form id="FormPendaftaranJMK48" autocomplete="off">
+
+  <div class="input-group">
+    <input type="text" name="nama" placeholder=" ">
+    <label>Nama Lengkap</label>
+  </div>
+
+  <div class="input-group">
+    <input type="text" name="status" placeholder=" ">
+    <label>Siap Menjadi Pembalap?</label>
+  </div>
+
+  <div class="input-group">
+    <input type="text" name="umur" placeholder=" ">
+    <label>Umur</label>
+  </div>
+
+  <div class="input-group">
+    <input type="text" name="asal" placeholder=" ">
+    <label>Asal</label>
+  </div>
+
+  <div class="input-group">
+    <input type="text" name="hobi" placeholder=" ">
+    <label>Hobi</label>
+  </div>
+
+  <div class="input-group">
+    <input type="email" name="email" placeholder=" ">
+    <label>Email</label>
+  </div>
+
+  <div class="input-group">
+    <input type="tel" name="wa" placeholder=" ">
+    <label>No. WhatsApp</label>
+  </div>
+   <button type="submit">Daftar</button>
+<script>
+const form = document.getElementById("FormPendaftaranJMK48");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+const data = {
+    nama: form.nama.value,
+    status: form.status.value,
+    umur: form.umur.value,
+    asal: form.asal.value,
+    hobi: form.hobi.value,
+    email: form.email.value,
+    wa: form.wa.value
+};
+
+    fetch("https://script.google.com/macros/s/AKfycbxeWUR5UWGgCHqRLDj9VGNmCnf2DsCRCZluJsT8uj0pO4Fz0r2p2MOeJv-mb62_NT-7Lw/exec", {
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    .then(res => res.text())
+    .then(res => {
+        alert("Berhasil");
+        console.log(res);
+        form.reset();
+    })
+    .catch(err => {
+        console.error(err);
+        alert(err.message);
+    });
+});
+</script>
+
+    <script>
+const hearts = document.querySelector(".hearts");
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+
+  const emoji = [
+    "🏎️","🏁","🔥","💨","⚡","⭐","🛞","🚥"
+  ];
+
+  heart.innerHTML = emoji[Math.floor(Math.random() * emoji.length)];
+
+  heart.style.left = Math.random() * window.innerWidth + "px";
+  heart.style.fontSize = (50 + Math.random() * 40) + "px";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+  hearts.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 80);
+</script>
+
+</body>
+
+</html>

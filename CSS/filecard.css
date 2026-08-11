@@ -1,0 +1,31 @@
+    body {
+    margin: 0;
+    background: #d0d4d8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    }
+
+.box{
+    width:350px;
+    background:#fff;
+    border-radius:20px;
+    padding:80px 25px 25px;
+    text-align:center;
+    position:relative;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.picture{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    position:absolute;
+    top:-60px;
+    left:50%;
+    transform:translateX(-50%);
+    border:5px solid #fff;
+}
